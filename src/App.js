@@ -1,10 +1,10 @@
-import CustomExample from './components/useCustomHookExample';
+import CallbackExample from './components/useCallbackExample';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-       <CustomExample />
+       <CallbackExample />
     </div>
   );
 }

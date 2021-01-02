@@ -1,21 +1,20 @@
 import React , { useState , useMemo } from 'react';
 const useMemoExample = () => {
-    const [count,setCount] = useState(0);
-    const memorizedText = useMemo(()=>{
-        console.log('run useMemo');
-        return `memo ${Date.now()}`;
-    },[Math.floor(count/10)]);
-
-    const addCount=()=>{
-        setCount(count+1);
-    }
+    const [count, setCount] = useState(0);
+    const [count2,setCount2] = useState(100);
+    const expensive = useMemo(()=>{
+        console.log('compute');
+        return count;
+    },[count]);
 
     return (
-        <div>
-            {memorizedText}
-            <div>{count}</div>
-            <button onClick={addCount}>++++</button>
-        </div>
+        <>
+        <div>{count}</div>
+        <div>expensive:{expensive}</div>
+        <div>另外的点击: {count2}</div>
+        <button onClick={()=>{setCount(count+1)}}>add</button>
+        <button onClick={()=>{setCount2(count2+1)}}>另外的点击</button>
+        </>
     );
 }
 
